@@ -46,6 +46,8 @@ export enum FM {
     ACTIONCREATOREDITOR_WARNING_ENTITY = 'ActionCreatorEditor.warningEntity',
     ACTIONCREATOREDITOR_WARNING_PAYLOAD = 'ActionCreatorEditor.warningPayload',
     ACTIONCREATOREDITOR_WARNING_NONEMPTYFIELD = 'ActionCreatorEditor.warningNonEmptyFields',
+    ACTIONCREATOREDITOR_WARNING_DUPLICATEACTION = 'ActionCreatorEditor.warningDuplicateAction',
+    ACTIONCREATOREDITOR_WARNING_DUPLICATEFOUND = 'ActionCreatorEditor.warningDuplicateFound',
 
     // ActionDetails
     ACTIONDETAILSLIST_COLUMNS_RESPONSE = 'ActionDetailsList.columns.response',
@@ -111,6 +113,7 @@ export enum FM {
     APPSLIST_SUBTITLE = 'AppsList.subtitle',
     APPSLIST_CREATEBUTTONARIADESCRIPTION = 'AppsList.createButtonAriaDescription',
     APPSLIST_CREATEBUTTONTEXT = 'AppsList.createButtonText',
+    APPSLIST_EMPTY_TEXT = 'AppsList.emptyText',
     APPSLIST_IMPORTAPP_BUTTONARIADESCRIPTION = 'AppsList.importappButtonAriaDescription',
     APPSLIST_IMPORTAPP_BUTTONTEXT = 'AppsList.importappButtonText',
     APPSLIST_IMPORTTUTORIALS_BUTTONARIADESCRIPTION = 'AppsList.importtutorialsButtonAriaDescription',
@@ -351,7 +354,7 @@ export enum FM {
     TEACHSESSIONADMIN_MEMORY_TITLE = 'TeachSessionAdmin.memory.title',
     TEACHSESSIONADMIN_ENTITYDETECTION_TITLE = 'TeachSessionAdmin.entityDetection.title',
     TEACHSESSIONADMIN_ACTION_TITLE = 'TeachSessionAdmin.action.title',
-    
+
     // TeachSessionInit
     TEACHSESSIONINIT_INPUT_PLACEHOLDER = 'TeachSessionInit.input.placeholder',
     TEACHSESSIONINIT_TITLE = 'TeachSessionInit.title',
@@ -546,6 +549,8 @@ export default {
         [FM.ACTIONCREATOREDITOR_WARNING_PAYLOAD]: 'Bot Response is Required',
         [FM.ACTIONCREATOREDITOR_WARNING_ENTITY]: 'Removed reference to undefined Entity',
         [FM.ACTIONCREATOREDITOR_WARNING_NONEMPTYFIELD]: `Non-wait Actions can't have Expected Entities`,
+        [FM.ACTIONCREATOREDITOR_WARNING_DUPLICATEACTION]: `Actions must be unique`,
+        [FM.ACTIONCREATOREDITOR_WARNING_DUPLICATEFOUND]: 'The action you are creating matches an existing action. Actions must be unique. Please change the properties or close.',
 
         // ActionScorer
         [FM.ACTIONSCORER_COLUMNS_RESPONSE]: 'Response',
@@ -618,6 +623,7 @@ export default {
         [FM.APPSLIST_SUBTITLE]: 'Create and manage your Conversation Learner models',
         [FM.APPSLIST_CREATEBUTTONARIADESCRIPTION]: 'Create a New Model',
         [FM.APPSLIST_CREATEBUTTONTEXT]: 'New Model',
+        [FM.APPSLIST_EMPTY_TEXT]: 'Create a New Model',
         [FM.APPSLIST_IMPORTAPP_BUTTONARIADESCRIPTION]: 'Import Model',
         [FM.APPSLIST_IMPORTAPP_BUTTONTEXT]: 'Import Model',
         [FM.APPSLIST_IMPORTTUTORIALS_BUTTONARIADESCRIPTION]: 'Import Tutorials Models',
