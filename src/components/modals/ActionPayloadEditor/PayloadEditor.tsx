@@ -48,23 +48,26 @@ interface State {
     menuProps: IPickerProps
 }
 
+const initialState: Readonly<State> = {
+    highlightIndex: 0,
+    matchedOptions: [] as MatchedOption<IOption>[],
+    maxDisplayedOptions: 4,
+    menuProps: defaultPickerProps,
+}
+
 export default class PayloadEditor extends React.Component<Props, State> {
     fuse: Fuse
     menu: HTMLElement
     plugins: any[]
 
-    state = {
-        highlightIndex: 0,
-        matchedOptions: [] as MatchedOption<IOption>[],
-        maxDisplayedOptions: 4,
-        menuProps: defaultPickerProps,
-    }
-
     constructor(props: Props) {
         super(props)
 
         this.fuse = new Fuse(this.props.options, fuseOptions)
-        this.state.matchedOptions = this.getDefaultMatchedOptions()
+        this.state = {
+            ...initialState,
+            matchedOptions: this.getDefaultMatchedOptions()
+        }
 
         this.plugins = [
             OptionalPlugin(),
