@@ -9,6 +9,7 @@ import * as CLM from '@conversationlearner/models'
 import * as ExtractorResponseEditor from '../ExtractorResponseEditor'
 import { formatMessageId } from '../../Utils/util'
 import { injectIntl, InjectedIntlProps } from 'react-intl'
+// import { string } from 'prop-types';
 
 // Renaming from Props because of https://github.com/Microsoft/tslint-microsoft-contrib/issues/339
 interface ReceivedProps {
@@ -30,8 +31,7 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
             className={OF.FontClassNames.mediumPlus}
             onDismiss={() => props.onClose()}
             dialogContentProps={{
-                type: OF.DialogType.normal,
-                title: formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_TITLE)
+                type: OF.DialogType.normal
             }}
             getStyles={() => {
                 return {
@@ -51,6 +51,12 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
             }}
         >
             {typeof props.message === 'function' && props.message()}
+            <h2>
+                <OF.Icon className="cl-icon cl-color-error" iconName="IncidentTriangle" />
+                {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_TITLE)}
+            </h2>
+            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_SUBTITLE)}</p>
+            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_EXISTING)}</p>
             <ExtractorResponseEditor.EditorWrapper
                 render={(editorProps, onChangeCustomEntities) =>
                     <ExtractorResponseEditor.Editor
@@ -67,14 +73,32 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
                 extractorResponse={props.extractResponse}
                 onChange={() => { }}
             />
+            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_BAD)}</p>
+            <ExtractorResponseEditor.EditorWrapper
+                render={(editorProps, onChangeCustomEntities) =>
+                    <ExtractorResponseEditor.Editor
+                        readOnly={true}
+                        isValid={true}
+                        entities={props.entities}
+                        {...editorProps}
+
+                        onChangeCustomEntities={onChangeCustomEntities}
+                        onClickNewEntity={() => { }}
+                    />
+                }
+                entities={props.entities}
+                extractorResponse={props.extractResponse}
+                onChange={() => { }}
+            />
+            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_CALLTOACTION)}</p>
             <OF.DialogFooter>
                 <OF.DefaultButton
-                    onClick={() => props.onClose()}
-                    text={formatMessageId(intl, FM.BUTTON_CLOSE)}
-                />
-                <OF.PrimaryButton
                     onClick={() => props.onAccept()}
                     text={formatMessageId(intl, FM.BUTTON_ACCEPT)}
+                />
+                <OF.PrimaryButton
+                    onClick={() => props.onClose()}
+                    text={formatMessageId(intl, FM.BUTTON_CLOSE)}
                 />
             </OF.DialogFooter>
         </OF.Dialog>

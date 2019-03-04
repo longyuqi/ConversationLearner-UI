@@ -243,6 +243,10 @@ export enum FM {
 
     // ExtractConflictModal
     EXTRACTCONFLICTMODAL_TITLE = 'ExtractConflictModal.title',
+    EXTRACTCONFLICTMODAL_SUBTITLE = 'ExtractConflictModal.subtitle',
+    EXTRACTCONFLICTMODAL_EXISTING = 'ExtractConflictModal.existing',
+    EXTRACTCONFLICTMODAL_BAD = 'ExtractConflictModal.bad',
+    EXTRACTCONFLICTMODAL_CALLTOACTION = 'ExtractConflictModal.callaction',
 
     // LogDialogModal
     LOGDIALOGMODAL_DEFAULTBUTTON_ARIADESCRIPTION = 'LogDialogModal.defaultButton.ariaDescription',
@@ -949,7 +953,11 @@ export default {
         [FM.ERROR_TOOMANYCHARACTERS]: 'Current value exceeds maximum supported length.',
 
         // ExtractConflictModal
-        [FM.EXTRACTCONFLICTMODAL_TITLE]: 'Entity is labelled differently in another user utterance',
+        [FM.EXTRACTCONFLICTMODAL_TITLE]: 'Inconsistent Entity Labels',
+        [FM.EXTRACTCONFLICTMODAL_SUBTITLE]: 'You attempted to submit an identical user utterance to one found in another Train Dialog with different Entity labels. Please review the labels below:',
+        [FM.EXTRACTCONFLICTMODAL_EXISTING]: 'Attempted Input',
+        [FM.EXTRACTCONFLICTMODAL_BAD]: 'Existing',
+        [FM.EXTRACTCONFLICTMODAL_CALLTOACTION]: `Clicking 'Accept' will replace the current labels with the existing labels.`,
 
         // LogDialogModal
         [FM.LOGDIALOGMODAL_DEFAULTBUTTON_ARIADESCRIPTION]: 'Delete',
