@@ -954,10 +954,10 @@ export default {
 
         // ExtractConflictModal
         [FM.EXTRACTCONFLICTMODAL_TITLE]: 'Inconsistent Entity Labels',
-        [FM.EXTRACTCONFLICTMODAL_SUBTITLE]: 'You attempted to submit an identical user utterance to one found in another Train Dialog with different Entity labels. Please review the labels below:',
-        [FM.EXTRACTCONFLICTMODAL_EXISTING]: 'Attempted Input',
-        [FM.EXTRACTCONFLICTMODAL_BAD]: 'Existing',
-        [FM.EXTRACTCONFLICTMODAL_CALLTOACTION]: `Clicking 'Accept' will replace the current labels with the existing labels.`,
+        [FM.EXTRACTCONFLICTMODAL_SUBTITLE]: 'You attempted to submit a similar user input to one already labelled elsewhere with different Entity labels. Please review the labels below:',
+        [FM.EXTRACTCONFLICTMODAL_EXISTING]: 'Submitted Labels',
+        [FM.EXTRACTCONFLICTMODAL_BAD]: 'Existing Labels',
+        [FM.EXTRACTCONFLICTMODAL_CALLTOACTION]: `Clicking 'Accept' will replace the submitted labels with the existing labels.`,
 
         // LogDialogModal
         [FM.LOGDIALOGMODAL_DEFAULTBUTTON_ARIADESCRIPTION]: 'Delete',

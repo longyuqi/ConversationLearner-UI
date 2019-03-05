@@ -29,6 +29,7 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
         <OF.Dialog
             hidden={!props.open}
             className={OF.FontClassNames.mediumPlus}
+            containerClassName="cl-modal cl-modal--medium"
             onDismiss={() => props.onClose()}
             dialogContentProps={{
                 type: OF.DialogType.normal
@@ -51,12 +52,24 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
             }}
         >
             {typeof props.message === 'function' && props.message()}
-            <h2>
-                <OF.Icon className="cl-icon cl-color-error" iconName="IncidentTriangle" />
-                {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_TITLE)}
-            </h2>
-            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_SUBTITLE)}</p>
-            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_EXISTING)}</p>
+            <div className="cl-modal_header" data-testid="create-an-action-title">
+                <span className={OF.FontClassNames.xxLarge}>
+                    <OF.Icon className="cl-icon cl-color-error cl-labelconflict-icon cl-labelconflict-icon-title" iconName="IncidentTriangle" />
+                    {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_TITLE)}
+                </span>
+            </div>
+            <p>
+                {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_SUBTITLE)}
+            </p>
+            <p>
+                <OF.Icon
+                    key="empty"
+                    iconName="Cancel"
+                    className="cl-icon cl-color-error cl-labelconflict-icon cl-labelconflict-icon-labels"
+                    data-testid="entity-label-conflict-submitted"
+                />
+                {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_EXISTING)}
+            </p>
             <ExtractorResponseEditor.EditorWrapper
                 render={(editorProps, onChangeCustomEntities) =>
                     <ExtractorResponseEditor.Editor
@@ -73,7 +86,15 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
                 extractorResponse={props.extractResponse}
                 onChange={() => { }}
             />
-            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_BAD)}</p>
+            <p>
+                <OF.Icon
+                    key="empty"
+                    iconName="CheckMark"
+                    className="cl-icon cl-labelconflict-icon cl-labelconflict-icon-labels"
+                    data-testid="entity-label-conflict-existing"
+                />
+                {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_BAD)}
+            </p>
             <ExtractorResponseEditor.EditorWrapper
                 render={(editorProps, onChangeCustomEntities) =>
                     <ExtractorResponseEditor.Editor
@@ -90,7 +111,9 @@ const ExtractConflictModal: React.SFC<Props> = (props) => {
                 extractorResponse={props.extractResponse}
                 onChange={() => { }}
             />
-            <p>{formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_CALLTOACTION)}</p>
+            <p>
+                {formatMessageId(intl, FM.EXTRACTCONFLICTMODAL_CALLTOACTION)}
+            </p>
             <OF.DialogFooter>
                 <OF.DefaultButton
                     onClick={() => props.onAccept()}

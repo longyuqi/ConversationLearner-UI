@@ -145,6 +145,7 @@ html {
   color: green;
   font-size: 20px;
 }
+
 .cl-icon[data-icon-name="CommentAdd"]{
   color: lightgrey;
   font-size: 18px
@@ -940,4 +941,17 @@ i[data-icon-name="Delete"]:hover, i[data-icon-name="Edit"]:hover{
 
 .cl-float-left {
   float: left;
+}
+
+.cl-labelconflict-icon {
+  vertical-align: middle !important;
+}
+
+.cl-labelconflict-icon-title {
+  font-size:16pt !important;
+  padding-bottom:6px;
+}
+
+.cl-labelconflict-icon-labels {
+  padding-bottom:3px !important;
 }
